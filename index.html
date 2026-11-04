@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>a/o/g collection</title>
+<meta name="description" content="The a/o/g collection: photography projects by André O. Graves.">
+<meta property="og:title" content="a/o/g collection">
+<meta property="og:description" content="Photography projects by André O. Graves.">
+<meta property="og:image" content="https://andreograves.com/img/cover-ppla.jpg">
+<meta property="og:url" content="https://andreograves.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a contact-sheet index. One cover per project, each labeled with its archive folder code,
+   linking out to that project's own site. */
+:root{
+  --paper:#ededeb; --ink:#171717; --muted:#66655f; --rule:#cfcec9; --mark:#b3261e;
+  --sans:'Avenir Next','Avenir','Figtree','Helvetica Neue',Arial,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root{--paper:#121211;--ink:#ebeae6;--muted:#9a9891;--rule:#2c2b28;--mark:#ff5a4a;color-scheme:dark}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{display:block;max-width:100%;height:auto}
+:focus-visible{outline:2px solid var(--mark);outline-offset:3px}
+.wrap{max-width:1360px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+.mast{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:22px 18px;border-bottom:1px solid var(--rule)}
+.mark{font-weight:700;font-size:clamp(22px,3vw,28px);letter-spacing:-.01em;text-decoration:none}
+.mark span{color:var(--mark)}
+.mast p{margin:0;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+
+.lede{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:end;padding-block:clamp(28px,6vw,64px) clamp(20px,4vw,36px)}
+.lede h1{margin:0;font-weight:600;font-size:clamp(38px,7vw,84px);line-height:1;letter-spacing:-.015em;text-wrap:balance}
+.lede p{margin:0;font-family:var(--mono);font-size:12px;color:var(--muted);text-align:right;letter-spacing:.04em}
+@media (max-width:560px){.lede{grid-template-columns:1fr}.lede p{text-align:left}}
+
+.projects{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,2vw,24px);padding-bottom:48px}
+@media (max-width:1000px){.projects{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.projects{grid-template-columns:1fr}}
+.proj{display:flex;flex-direction:column;gap:12px;text-decoration:none}
+.proj figure{margin:0;aspect-ratio:4/5;overflow:hidden;background:var(--rule);max-width:100%}
+.proj img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.proj:hover img{transform:scale(1.03)}
+.meta{display:flex;justify-content:space-between;gap:12px;align-items:baseline;border-top:1px solid var(--rule);padding-top:10px}
+.meta h2{margin:0;font-weight:600;font-size:19px}
+.meta span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+.proj p{margin:0;color:var(--muted);font-size:14px}
+.proj .go{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--ink)}
+.proj:hover .go{color:var(--mark)}
+.proj--portfolio .meta h2{color:var(--mark)}
+
+footer{border-top:1px solid var(--rule);padding-block:18px 28px;display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.04em}
+footer a{text-decoration:none;border-bottom:1px solid var(--rule)}
+footer a:hover{color:var(--ink);border-color:var(--mark)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="mast">
+    <a class="mark" href="/">a<span>/</span>o<span>/</span>g collection</a>
+    <p>André O. Graves · Photography projects</p>
+  </header>
+
+  <section class="lede">
+    <h1>Photography projects</h1>
+    <p>3 projects · 1 portfolio</p>
+  </section>
+
+  <main class="projects">
+    <a class="proj" href="https://thecityofangles.com">
+      <figure><img src="img/cover-tcoa.jpg" width="1200" height="1500" alt="A singer silhouetted against stage lights"></figure>
+      <div class="meta"><h2>THE CITY of ANGLEs</h2><span>003 TCOA</span></div>
+      <p>Events, stages, and the people in them.</p>
+      <span class="go">thecityofangles.com ↗</span>
+    </a>
+    <a class="proj" href="https://dirtyblackblood.com">
+      <figure><img src="img/cover-dbb.jpg" width="1200" height="1500" alt="Two people embracing in a crowd, in black and white"></figure>
+      <div class="meta"><h2>+DIRTY | BLACK | BLOOD+</h2><span>004 DBB</span></div>
+      <p>Of the street. Of the people. Of the culture.</p>
+      <span class="go">dirtyblackblood.com ↗</span>
+    </a>
+    <a class="proj" href="https://picturepostcardsfromla.com">
+      <figure><img src="img/cover-ppla.jpg" width="1200" height="1500" alt="A lone palm tree above green hills with the Los Angeles skyline behind it"></figure>
+      <div class="meta"><h2>&gt;Picture Postcards | LA&lt;</h2><span>002 PPLA</span></div>
+      <p>Los Angeles, printed like postcards.</p>
+      <span class="go">picturepostcardsfromla.com ↗</span>
+    </a>
+    <a class="proj proj--portfolio" href="https://andregraves.com">
+      <figure><img src="img/cover-portfolio.jpg" width="1200" height="1500" alt="A child standing among jump ropes, in black and white"></figure>
+      <div class="meta"><h2>My portfolio</h2><span>a/o/g</span></div>
+      <p>People, places, things.</p>
+      <span class="go">andregraves.com ↗</span>
+    </a>
+  </main>
+
+  <footer>
+    <span>© André O. Graves</span>
+    <span><a href="https://www.instagram.com/andreograves/">Instagram @andreograves</a></span>
+  </footer>
+</div>
+</body>
+</html>
