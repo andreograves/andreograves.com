@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>a/o/g collection</title>
-<meta name="description" content="The a/o/g collection: photography projects by André O. Graves.">
-<meta property="og:title" content="a/o/g collection">
-<meta property="og:description" content="Photography projects by André O. Graves.">
+<title>André O. Graves | Photography Sites</title>
+<meta name="description" content="André O. Graves presents his photography sites: My Portfolio, THE CITY of ANGLEs, Dirty | Black | Blood, and Picture Postcards from L.A.">
+<meta property="og:title" content="André O. Graves | Photography Sites">
+<meta property="og:description" content="André O. Graves presents… four photography sites.">
 <meta property="og:url" content="https://andreograves.com/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://andreograves.com/img/share.jpg">
@@ -18,99 +18,208 @@
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;700;900&family=IBM+Plex+Mono:wght@400;500&family=Special+Elite&family=Amatic+SC:wght@700&family=Homemade+Apple&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,400&display=swap">
 <style>
-/* Layout: a contact-sheet index. One cover per project, each labeled with its archive folder code,
-   linking out to that project's own site. */
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+/* Layout: mirrors andreograves.com. A full-screen Space Needle splash with one link, then the collection:
+   a full-screen crowd photo with the four project names stacked, each set in its own site's typeface,
+   and a cover gallery below that repeats those typefaces. */
 :root{
   --paper:#ededeb; --ink:#171717; --muted:#66655f; --rule:#cfcec9; --mark:#b3261e;
+  --white:#fff; --sunset:#f2b13c; --night:#1b1410; --shade:rgba(0,0,0,.34);
+  --amber:#ffb23e; --dbb-red:#e0313c; --dbb-green:#3fae5c; --sun:#f3b34c; --stamp:#e2572b;
   --sans:'Avenir Next','Avenir','Figtree','Helvetica Neue',Arial,sans-serif;
   --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
-  color-scheme:light;
+  /* one face per project, taken from each project's own page */
+  --f-port:'Special Elite','American Typewriter','Courier New',Courier,monospace;
+  --f-tcoa:'Avenir Next','Avenir','Figtree','Helvetica Neue',Arial,sans-serif;
+  --f-dbb:'Amatic SC','Arial Narrow','Helvetica Neue',Arial,sans-serif;
+  --f-script:'Homemade Apple','Bradley Hand','Segoe Script',cursive;
+  --f-block:'Bebas Neue','Oswald',Impact,sans-serif;
 }
-@media (prefers-color-scheme:dark){:root{--paper:#121211;--ink:#ebeae6;--muted:#9a9891;--rule:#2c2b28;--mark:#ff5a4a;color-scheme:dark}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#121211;--ink:#ebeae6;--muted:#9a9891;--rule:#2c2b28;--mark:#ff5a4a;color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#121211;--ink:#ebeae6;--muted:#9a9891;--rule:#2c2b28;--mark:#ff5a4a;color-scheme:dark}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;overflow-x:hidden}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 img{display:block;max-width:100%;height:auto}
-:focus-visible{outline:2px solid var(--mark);outline-offset:3px}
+:focus-visible{outline:2px solid var(--mark);outline-offset:4px}
+[hidden]{display:none!important}
+
+/* full-screen photo screens */
+.screen{position:relative;min-height:100svh;display:grid;place-items:center;overflow:hidden;background:#111;color:var(--white);text-align:center;
+  padding-block:64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.screen>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.screen::after{content:"";position:absolute;inset:0;background:var(--shade);pointer-events:none}
+.screen>*:not(img){position:relative;z-index:1}
+
+/* splash */
+#splash>img{object-position:58% 50%}
+/* splash title card: a poster credit set in the open gold sky above the clouds, the Needle left alone below */
+#splash{place-items:start center;text-align:center;padding-block:clamp(48px,10vh,104px) 64px}
+#splash>img{object-position:58% 30%}
+#splash::after{background:linear-gradient(180deg,rgba(255,236,190,.16) 0%,rgba(255,236,190,0) 38%),linear-gradient(0deg,rgba(10,8,14,.35) 0%,rgba(10,8,14,0) 40%)}
+.titlecard{display:flex;flex-direction:column;align-items:center;gap:clamp(22px,3.4vh,36px);max-width:100%}
+.titlecard h1{margin:0;display:flex;flex-direction:column;align-items:center;gap:clamp(8px,1.4vh,16px);font-weight:400;color:var(--night)}
+.titlecard .who{font-family:'Bodoni Moda','Didot','Bodoni 72',Georgia,serif;font-weight:500;font-size:clamp(34px,5.4vw,86px);line-height:1;letter-spacing:.16em;margin-right:-.16em;text-transform:uppercase;text-wrap:balance}
+.titlecard .what{display:flex;align-items:center;gap:.7em;font-family:'Bodoni Moda','Didot','Bodoni 72',Georgia,serif;font-style:italic;font-size:clamp(20px,2.2vw,32px);letter-spacing:.04em;color:var(--night)}
+.titlecard .what::before,.titlecard .what::after{content:"";width:clamp(32px,4vw,64px);height:1px;background:currentColor;opacity:.7}
+.enter{display:inline-flex;align-items:center;gap:12px;font:600 11px/1 var(--sans);letter-spacing:.34em;text-transform:uppercase;text-decoration:none;color:var(--night);padding:13px 20px 13px 24px;border:1px solid rgba(27,20,16,.6);transition:background .25s,color .25s,border-color .25s}
+.enter span{letter-spacing:0;font-size:14px;transition:transform .25s}
+.enter:hover{background:var(--night);border-color:var(--night);color:var(--sunset)}
+.enter:hover span{transform:translateX(4px)}
+@media (max-width:560px){#splash{padding-block:72px 48px}#splash>img{object-position:58% 70%}.titlecard .who{font-size:clamp(30px,10vw,44px);letter-spacing:.12em;margin-right:-.12em}}
+
+/* collection screen */
+#coll-hero>img{filter:grayscale(1);object-position:50% 40%}
+#coll-hero::after{background:rgba(0,0,0,.4)}
+.homebtn{position:absolute!important;z-index:2;top:max(18px,env(safe-area-inset-top,0px));left:max(16px,env(safe-area-inset-left,0px));display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1.5px solid rgba(255,255,255,.75);border-radius:999px;color:var(--white);text-decoration:none;font:600 11px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;transition:background .2s,color .2s}
+.homebtn:hover{background:var(--white);color:#111}
+.homebtn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+/* opening credit above the site names, set like a film title card */
+.billing{display:flex;flex-direction:column;align-items:center;gap:clamp(26px,5.5vh,56px)}
+.presents{margin:0;display:flex;flex-direction:column;align-items:center;gap:.1em;color:var(--white);text-shadow:0 2px 14px rgba(0,0,0,.55);font-family:'Cormorant Garamond','Cormorant',Garamond,'Times New Roman',serif;line-height:1.1}
+.presents .who{font-weight:600;font-size:clamp(15px,1.7vw,22px);letter-spacing:.42em;margin-right:-.42em;text-transform:uppercase}
+.presents .what{font-style:italic;font-weight:500;font-size:clamp(22px,2.6vw,34px);letter-spacing:.02em;opacity:.92}
+.presents::after{content:"";width:56px;height:1px;margin-top:.7em;background:rgba(255,255,255,.6)}
+.stack{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;align-items:center;gap:clamp(14px,3.2vh,34px)}
+.stack a{display:inline-block;text-decoration:none;color:var(--white);text-shadow:0 2px 16px rgba(0,0,0,.5);line-height:1;transition:transform .25s ease,color .25s}
+.stack a:hover{transform:scale(1.04)}
+
+/* each project's own type, used in the stack and in the gallery */
+.t-port{font-family:var(--f-port);font-weight:400;font-size:clamp(30px,4.2vw,56px);letter-spacing:.01em}
+.t-tcoa{font-family:var(--f-tcoa);font-weight:900;font-size:clamp(32px,4.8vw,66px);letter-spacing:-.01em}
+.t-tcoa i{font-style:normal;font-weight:500;font-size:.62em;vertical-align:.18em}
+.t-dbb{font-family:var(--f-dbb);font-weight:700;font-size:clamp(40px,5.6vw,76px);letter-spacing:.03em}
+.t-dbb b{font-weight:700;color:var(--dbb-red)}
+.t-ppla{display:inline-flex;align-items:baseline;gap:.4em;white-space:nowrap}
+.t-ppla .s{font-family:var(--f-script);font-size:clamp(20px,2.7vw,36px);line-height:1.6}
+.t-ppla .b{font-family:var(--f-block);font-size:clamp(40px,5.4vw,72px);letter-spacing:.03em;line-height:1}
+.t-ppla .b span{color:var(--sun)}
+.stack .t-tcoa:hover{color:var(--amber)}
+.stack .t-port:hover{color:#d9d9d9}
+.scroll{position:absolute!important;left:50%;bottom:max(18px,env(safe-area-inset-bottom,0px));transform:translateX(-50%);font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.8);text-decoration:none}
+.scroll:hover{color:var(--white)}
+@media (max-width:480px){.stack .t-ppla{flex-direction:column;align-items:center;gap:0}.stack .t-ppla .s{line-height:1.9}}
+
+/* cover gallery */
 .wrap{max-width:1360px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-
-.mast{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:22px 18px;border-bottom:1px solid var(--rule)}
-.mark{font-weight:700;font-size:clamp(22px,3vw,28px);letter-spacing:-.01em;text-decoration:none}
-.mark span{color:var(--mark)}
-.mast p{margin:0;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-
-.lede{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:end;padding-block:clamp(28px,6vw,64px) clamp(20px,4vw,36px)}
-.lede h1{margin:0;font-weight:600;font-size:clamp(38px,7vw,84px);line-height:1;letter-spacing:-.015em;text-wrap:balance}
-.lede p{margin:0;font-family:var(--mono);font-size:12px;color:var(--muted);text-align:right;letter-spacing:.04em}
-@media (max-width:560px){.lede{grid-template-columns:1fr}.lede p{text-align:left}}
-
+.lede{padding-block:clamp(32px,6vw,64px) clamp(18px,3vw,30px);border-bottom:1px solid var(--rule);margin-bottom:clamp(16px,2.4vw,28px)}
+.lede h2{margin:0;font-weight:700;font-size:clamp(30px,5vw,60px);line-height:1;letter-spacing:-.015em}
+.lede p{margin:0;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .projects{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,2vw,24px);padding-bottom:48px}
 @media (max-width:1000px){.projects{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.projects{grid-template-columns:1fr}}
-.proj{display:flex;flex-direction:column;gap:12px;text-decoration:none}
+.proj{display:flex;flex-direction:column;gap:10px;text-decoration:none;min-width:0}
 .proj figure{margin:0;aspect-ratio:4/5;overflow:hidden;background:var(--rule);max-width:100%}
 .proj img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
 .proj:hover img{transform:scale(1.03)}
-.meta{display:flex;justify-content:space-between;gap:12px;align-items:baseline;border-top:1px solid var(--rule);padding-top:10px}
-.meta h2{margin:0;font-weight:600;font-size:19px}
-.meta span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+/* Postcards cover: same treatment as the picturepostcardsfromla.com splash */
+.proj figure.sunwash{position:relative}
+.proj figure.sunwash img{filter:brightness(1.08) contrast(.94) saturate(.9)}
+.proj figure.sunwash::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.18) 0%,rgba(255,255,255,.08) 55%,transparent 100%);pointer-events:none}
+.meta{display:flex;align-items:baseline;border-top:1px solid var(--rule);padding-top:10px;min-height:52px}
+.meta h3{margin:0;min-width:0;line-height:1;color:var(--ink)}
+.meta .code{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
 .proj p{margin:0;color:var(--muted);font-size:14px}
-.proj .go{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--ink)}
+.go{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--ink)}
 .proj:hover .go{color:var(--mark)}
-.proj--portfolio .meta h2{color:var(--mark)}
+/* gallery sizes for the project type */
+.meta .t-port{font-size:24px}
+.meta .t-tcoa{font-size:22px}
+.meta .t-dbb{font-size:32px}
+.meta .t-dbb b{color:var(--mark)}
+.meta .t-ppla .s{font-size:15px}
+.meta .t-ppla .b{font-size:30px}
+.meta .t-ppla .b span{color:var(--stamp)}
 
-footer{border-top:1px solid var(--rule);padding-block:18px 28px;display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.04em}
-footer a{text-decoration:none;border-bottom:1px solid var(--rule)}
-footer a:hover{color:var(--ink);border-color:var(--mark)}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+footer{border-top:1px solid var(--rule);padding-block:32px 36px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.04em}
+.social{display:flex;justify-content:center;gap:14px}
+.social a{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--rule);color:var(--ink);text-decoration:none;transition:background .2s,color .2s,border-color .2s}
+.social a:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.social svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.social .dot{fill:currentColor;stroke:none}
+.fnav{display:flex;gap:22px;text-transform:uppercase;letter-spacing:.1em}
+.fnav a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
+.fnav a:hover{color:var(--ink);border-bottom-color:var(--mark)}
+footer .addr{user-select:all;color:var(--ink)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header class="mast">
-    <a class="mark" href="/">a<span>/</span>o<span>/</span>g collection</a>
-    <p>André O. Graves · Photography projects</p>
-  </header>
 
-  <section class="lede">
-    <h1>Photography projects</h1>
-    <p>3 projects · 1 portfolio</p>
+<section class="screen" id="splash" aria-label="Welcome">
+  <img src="img/splash-needle.jpg" width="2047" height="1365" alt="The Space Needle against a gold sunset sky and dark clouds" fetchpriority="high">
+  <div class="titlecard">
+    <h1><span class="who">André O. Graves</span><span class="what">presents</span></h1>
+    <a class="enter" href="#the-collection">Enter <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<div id="collection" hidden>
+  <section class="screen" id="coll-hero" aria-labelledby="coll-title">
+    <img src="img/collection-heart.jpg" width="2040" height="1463" alt="A festival-goer making a heart with their hands above a crowd, in black and white">
+    <h1 id="coll-title" hidden>Photography Sites</h1>
+    <a class="homebtn" href="#" aria-label="Back to the splash page" title="Back to the splash page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11 12 4l8.5 7"/><path d="M6 9.5V20h4.5v-5.5h3V20H18V9.5"/></svg>Home</a>
+    <div class="billing">
+    <ul class="stack">
+      <li><a class="t-port" href="https://andregraves.com/" target="_blank" rel="noopener">MY PORTFOLIO</a></li>
+      <li><a class="t-tcoa" href="https://thecityofangles.com/" target="_blank" rel="noopener">THE CITY <i>of</i> ANGLEs</a></li>
+      <li><a class="t-dbb" href="https://dirtyblackblood.com/" target="_blank" rel="noopener">DIRTY <b>|</b> BLACK <b>|</b> BLOOD</a></li>
+      <li><a class="t-ppla" href="https://picturepostcardsfromla.com/" target="_blank" rel="noopener" aria-label="Picture Postcards from L.A."><span class="s">Picture Postcards from</span><span class="b">L.A.</span></a></li>
+    </ul>
+    </div>
+    <a class="scroll" href="#gallery" id="to-gallery">All sites ↓</a>
   </section>
 
-  <main class="projects">
-    <a class="proj" href="https://thecityofangles.com">
-      <figure><img src="img/cover-tcoa.jpg" width="1200" height="1500" alt="A singer silhouetted against stage lights"></figure>
-      <div class="meta"><h2>THE CITY of ANGLEs</h2><span>003 TCOA</span></div>
-      <p>Events, stages, and the people in them.</p>
-      <span class="go">thecityofangles.com ↗</span>
-    </a>
-    <a class="proj" href="https://dirtyblackblood.com">
-      <figure><img src="img/cover-dbb.jpg" width="1200" height="1500" alt="Two people embracing in a crowd, in black and white"></figure>
-      <div class="meta"><h2>+DIRTY | BLACK | BLOOD+</h2><span>004 DBB</span></div>
-      <p>Of the street. Of the people. Of the culture.</p>
-      <span class="go">dirtyblackblood.com ↗</span>
-    </a>
-    <a class="proj" href="https://picturepostcardsfromla.com">
-      <figure><img src="img/cover-ppla.jpg" width="1200" height="1500" alt="A lone palm tree above green hills with the Los Angeles skyline behind it"></figure>
-      <div class="meta"><h2>&gt;Picture Postcards | LA&lt;</h2><span>002 PPLA</span></div>
-      <p>Los Angeles, printed like postcards.</p>
-      <span class="go">picturepostcardsfromla.com ↗</span>
-    </a>
-    <a class="proj proj--portfolio" href="https://andregraves.com">
-      <figure><img src="img/cover-portfolio.jpg" width="1200" height="1500" alt="A child standing among jump ropes, in black and white"></figure>
-      <div class="meta"><h2>My portfolio</h2><span>a/o/g</span></div>
-      <p>People, places, things.</p>
-      <span class="go">andregraves.com ↗</span>
-    </a>
-  </main>
-
-  <footer>
-    <span>© André O. Graves</span>
-    <span><a href="https://www.instagram.com/andreograves/">Instagram @andreograves</a></span>
-  </footer>
+  <div class="wrap" id="gallery">
+    <section class="lede">
+      <h2>Photography Sites</h2>
+    </section>
+    <main class="projects">
+      <a class="proj" href="https://andregraves.com/" target="_blank" rel="noopener">
+        <figure><img src="img/splash-portfolio.jpg" width="1333" height="2000" alt="A child shading their eyes among jump ropes, in black and white" loading="lazy"></figure>
+        <div class="meta"><h3 class="t-port">My Portfolio</h3></div>
+      </a>
+      <a class="proj" href="https://thecityofangles.com/" target="_blank" rel="noopener">
+        <figure><img src="img/splash-la.jpg" width="2029" height="1366" style="object-position:40% 50%" alt="The downtown Los Angeles skyline in haze at sunset, above hillside neighborhoods" loading="lazy"></figure>
+        <div class="meta"><h3 class="t-tcoa">THE CITY <i>of</i> ANGLEs</h3></div>
+      </a>
+      <a class="proj" href="https://dirtyblackblood.com/" target="_blank" rel="noopener">
+        <figure><img src="img/splash-dbb.jpg" width="1600" height="1067" style="object-position:56% 35%" alt="A child in a cap and white T-shirt crouching to dance in a crowd, in black and white" loading="lazy"></figure>
+        <div class="meta"><h3 class="t-dbb">Dirty <b>|</b> Black <b>|</b> Blood</h3></div>
+      </a>
+      <a class="proj" href="https://picturepostcardsfromla.com/" target="_blank" rel="noopener">
+        <figure class="sunwash"><img src="img/splash-ppla.jpg" width="2400" height="1800" style="object-position:60% 40%" alt="A lone palm tree above green hills with the Los Angeles skyline behind it" loading="lazy"></figure>
+        <div class="meta"><h3 class="t-ppla" aria-label="Picture Postcards from L.A."><span class="s">Picture Postcards from</span><span class="b">L.A.</span></h3></div>
+      </a>
+    </main>
+    <footer>
+      <nav class="social" aria-label="Social">
+        <a href="https://www.instagram.com/andreograves/" aria-label="Instagram @andreograves" title="Instagram @andreograves"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" class="dot"/></svg></a>
+        <a href="mailto:andreograves@gmail.com" aria-label="Email andreograves@gmail.com" title="andreograves@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m3.8 6.6 8.2 6.3 8.2-6.3"/></svg></a>
+      </nav>
+      <span class="addr">andreograves@gmail.com</span>
+      <nav class="fnav" aria-label="Page"><a href="#">Home</a><a href="#the-collection" id="to-top">Back to top ↑</a></nav>
+      <span>© André O. Graves</span>
+    </footer>
+  </div>
 </div>
+
+<script>
+const splash=document.getElementById('splash'), coll=document.getElementById('collection');
+function route(){
+  const inColl=location.hash==='#the-collection'||location.hash==='#gallery';
+  splash.hidden=inColl; coll.hidden=!inColl;
+  if(location.hash==='#gallery') document.getElementById('gallery').scrollIntoView(); else window.scrollTo(0,0);
+}
+document.getElementById('to-gallery').addEventListener('click',e=>{e.preventDefault();
+  document.getElementById('gallery').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});});
+document.getElementById('to-top').addEventListener('click',e=>{e.preventDefault();
+  window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});});
+window.addEventListener('hashchange',route);
+route();
+</script>
 </body>
 </html>
