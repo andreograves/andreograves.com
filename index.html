@@ -100,9 +100,16 @@ img{display:block;max-width:100%;height:auto}
 .t-ppla .s{font-family:var(--f-script);font-size:clamp(20px,2.7vw,36px);line-height:1.6}
 .t-ppla .b{font-family:var(--f-block);font-size:clamp(40px,5.4vw,72px);letter-spacing:.03em;line-height:1}
 .t-ppla .b span{color:var(--sun)}
-.t-rs{font-family:var(--f-tcoa);font-weight:900;font-size:clamp(30px,4.4vw,60px);letter-spacing:.02em}
-.t-rs span{color:var(--rs-red)}
+.t-rs{display:inline-flex;line-height:0}
+/* the redsonltd.com logo lettering, set on one line; SON stays red, the rest turns red on hover */
+.rs-word{display:block;height:clamp(26px,3.6vw,48px);width:auto;overflow:visible}
+.rs-word .son{fill:var(--rs-red);stroke:var(--rs-red)}
+.stack .t-rs .rs-word{filter:drop-shadow(0 2px 10px rgba(0,0,0,.5))}
 .stack .t-rs:hover{color:var(--rs-red)}
+/* hovers that take each site's own colours */
+.stack .t-dbb:hover{color:#0a0a0a}
+.stack .t-ppla .b{transition:color .25s,text-shadow .25s}
+.stack .t-ppla:hover .b{color:#22303f;text-shadow:3px 3px 0 #f3b34c,6px 6px 0 rgba(226,87,43,.85)}
 .stack .t-tcoa:hover{color:var(--amber)}
 .stack .t-port:hover{color:#d9d9d9}
 .scroll{position:absolute!important;left:50%;bottom:max(18px,env(safe-area-inset-bottom,0px));transform:translateX(-50%);font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.8);text-decoration:none}
@@ -112,7 +119,9 @@ img{display:block;max-width:100%;height:auto}
 /* cover gallery */
 .wrap{max-width:1360px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .lede{padding-block:clamp(32px,6vw,64px) clamp(18px,3vw,30px);border-bottom:1px solid var(--rule);margin-bottom:clamp(16px,2.4vw,28px)}
-.lede h2{margin:0;font-weight:700;font-size:clamp(30px,5vw,60px);line-height:1;letter-spacing:-.015em}
+.lede{text-align:center}
+.lede h2{margin:0;font-weight:700;font-size:clamp(30px,5vw,60px);line-height:1;letter-spacing:-.015em;text-wrap:balance}
+.lede h2 .plus{font-family:var(--f-script);font-weight:400;font-size:1.5em;line-height:0;margin-inline:.1em;vertical-align:-.06em}
 .lede p{margin:0;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .projects{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(12px,2vw,24px);padding-bottom:48px}
 @media (max-width:1100px){.projects{grid-template-columns:repeat(2,minmax(0,1fr))}.proj:last-child:nth-child(odd){grid-column:1/-1}.proj:last-child:nth-child(odd) figure{aspect-ratio:16/9}}
@@ -139,7 +148,7 @@ img{display:block;max-width:100%;height:auto}
 .meta .t-ppla .s{font-size:15px}
 .meta .t-ppla .b{font-size:30px}
 .meta .t-ppla .b span{color:var(--stamp)}
-.meta .t-rs{font-size:22px}
+.meta .t-rs .rs-word{height:19px}
 /* Red Son cover: drawn, not photographed: the redsonltd.com splash (logo above a rising half sun) */
 .proj figure.rs{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;background:var(--rs-bg);color:var(--rs-ink)}
 .rs-mark{position:absolute;top:50%;left:50%;width:min(56%,46cqh,260px);height:auto;transform:translate(-50%,-62%);transition:transform .5s ease}
@@ -181,7 +190,7 @@ footer .addr{user-select:all;color:var(--ink)}
       <li><a class="t-tcoa" href="https://thecityofangles.com/" target="_blank" rel="noopener">THE CITY <i>of</i> ANGLEs</a></li>
       <li><a class="t-dbb" href="https://dirtyblackblood.com/" target="_blank" rel="noopener">DIRTY <b>|</b> BLACK <b>|</b> BLOOD</a></li>
       <li><a class="t-ppla" href="https://picturepostcardsfromla.com/" target="_blank" rel="noopener" aria-label="Picture Postcards from L.A."><span class="s">Picture Postcards from</span><span class="b">L.A.</span></a></li>
-      <li><a class="t-rs" href="https://redsonltd.com/" target="_blank" rel="noopener">RED <span>SON</span> LTD.</a></li>
+      <li><a class="t-rs" href="https://redsonltd.com/" target="_blank" rel="noopener" aria-label="Red Son Ltd."><svg class="rs-word" viewBox="-4 -4 1090 112" aria-hidden="true"><g fill="currentColor"><rect x="0" y="0" width="26" height="100"/><path d="M34 0H72A26 26 0 0 1 72 52H34Z"/><path d="M34 60H62L100 100H34Z"/><rect x="110" y="0" width="26" height="100"/><rect x="144" y="0" width="66" height="26"/><rect x="144" y="37" width="50" height="26"/><rect x="144" y="74" width="66" height="26"/><rect x="220" y="0" width="26" height="100"/><path d="M254 0H270A50 50 0 0 1 270 100H254Z"/><g transform="translate(760 0)"><rect x="0" y="0" width="32" height="62"/><rect x="0" y="70" width="90" height="30"/><rect x="58" y="0" width="104" height="30"/><rect x="98" y="38" width="32" height="62"/><rect x="170" y="0" width="30" height="100"/><path d="M208 0H220A50 50 0 0 1 220 100H208Z"/><circle cx="290" cy="88" r="17"/></g></g><g class="son"><g transform="translate(380 0)"><g fill="none" stroke-width="22"><path d="M100 11H40A29 19.5 0 0 0 40 50H46"/><path d="M54 50H60A29 19.5 0 0 1 60 89H0"/></g><path d="M156 2A48 48 0 0 0 156 98Z"/><path d="M164 2A48 48 0 0 1 164 98Z"/><rect x="220" y="0" width="26" height="100"/><path d="M254 0H290L320 48V100H300L254 26Z"/><path d="M300 0H320V32Z"/></g><circle cx="1060" cy="78" r="17"/></g></svg></a></li>
     </ul>
     </div>
     <a class="scroll" href="#gallery" id="to-gallery">All sites ↓</a>
@@ -189,7 +198,7 @@ footer .addr{user-select:all;color:var(--ink)}
 
   <div class="wrap" id="gallery">
     <section class="lede">
-      <h2>Photography + Art + Services</h2>
+      <h2>Photography <span class="plus">+</span>&nbsp;Art <span class="plus">+</span>&nbsp;Services</h2>
     </section>
     <main class="projects">
       <a class="proj" href="https://andregraves.com/" target="_blank" rel="noopener">
@@ -210,7 +219,7 @@ footer .addr{user-select:all;color:var(--ink)}
       </a>
       <a class="proj" href="https://redsonltd.com/" target="_blank" rel="noopener" aria-label="Red Son Ltd.">
         <figure class="rs"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -4 330 330" class="rs-mark" aria-hidden="true"><g fill="currentColor"><rect x="0" y="0" width="26" height="100"/><path d="M34 0H72A26 26 0 0 1 72 52H34Z"/><path d="M34 60H62L100 100H34Z"/><rect x="110" y="0" width="26" height="100"/><rect x="144" y="0" width="66" height="26"/><rect x="144" y="37" width="50" height="26"/><rect x="144" y="74" width="66" height="26"/><rect x="220" y="0" width="26" height="100"/><path d="M254 0H270A50 50 0 0 1 270 100H254Z"/><g transform="translate(0 220)"><rect x="0" y="0" width="32" height="62"/><rect x="0" y="70" width="90" height="30"/><rect x="58" y="0" width="104" height="30"/><rect x="98" y="38" width="32" height="62"/><rect x="170" y="0" width="30" height="100"/><path d="M208 0H220A50 50 0 0 1 220 100H208Z"/><circle cx="290" cy="88" r="17"/></g></g><g fill="var(--rs-red)" stroke="var(--rs-red)" stroke-width="0"><g transform="translate(0 110)"><g fill="none" stroke-width="22"><path d="M100 11H40A29 19.5 0 0 0 40 50H46"/><path d="M54 50H60A29 19.5 0 0 1 60 89H0"/></g><path d="M156 2A48 48 0 0 0 156 98Z"/><path d="M164 2A48 48 0 0 1 164 98Z"/><rect x="220" y="0" width="26" height="100"/><path d="M254 0H290L320 48V100H300L254 26Z"/><path d="M300 0H320V32Z"/></g><circle cx="300" cy="298" r="17"/></g></svg><div class="rs-sun"></div></figure>
-        <div class="meta"><h3 class="t-rs">RED <span>SON</span> LTD.</h3></div>
+        <div class="meta"><h3 class="t-rs" aria-label="Red Son Ltd."><svg class="rs-word" viewBox="-4 -4 1090 112" aria-hidden="true"><g fill="currentColor"><rect x="0" y="0" width="26" height="100"/><path d="M34 0H72A26 26 0 0 1 72 52H34Z"/><path d="M34 60H62L100 100H34Z"/><rect x="110" y="0" width="26" height="100"/><rect x="144" y="0" width="66" height="26"/><rect x="144" y="37" width="50" height="26"/><rect x="144" y="74" width="66" height="26"/><rect x="220" y="0" width="26" height="100"/><path d="M254 0H270A50 50 0 0 1 270 100H254Z"/><g transform="translate(760 0)"><rect x="0" y="0" width="32" height="62"/><rect x="0" y="70" width="90" height="30"/><rect x="58" y="0" width="104" height="30"/><rect x="98" y="38" width="32" height="62"/><rect x="170" y="0" width="30" height="100"/><path d="M208 0H220A50 50 0 0 1 220 100H208Z"/><circle cx="290" cy="88" r="17"/></g></g><g class="son"><g transform="translate(380 0)"><g fill="none" stroke-width="22"><path d="M100 11H40A29 19.5 0 0 0 40 50H46"/><path d="M54 50H60A29 19.5 0 0 1 60 89H0"/></g><path d="M156 2A48 48 0 0 0 156 98Z"/><path d="M164 2A48 48 0 0 1 164 98Z"/><rect x="220" y="0" width="26" height="100"/><path d="M254 0H290L320 48V100H300L254 26Z"/><path d="M300 0H320V32Z"/></g><circle cx="1060" cy="78" r="17"/></g></svg></h3></div>
       </a>
     </main>
     <footer>
