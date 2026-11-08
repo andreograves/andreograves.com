@@ -126,20 +126,21 @@ img{display:block;max-width:100%;height:auto}
 .projects{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(12px,2vw,24px);padding-bottom:48px}
 @media (max-width:1100px){.projects{grid-template-columns:repeat(2,minmax(0,1fr))}.proj:last-child:nth-child(odd){grid-column:1/-1}.proj:last-child:nth-child(odd) figure{aspect-ratio:16/9}}
 @media (max-width:560px){.projects{grid-template-columns:1fr}}
-.proj{display:flex;flex-direction:column;gap:10px;text-decoration:none;min-width:0}
+.proj{display:flex;flex-direction:column;gap:12px;min-width:0}
+.proj-link{display:flex;flex-direction:column;gap:10px;text-decoration:none;color:inherit;min-width:0}
 .proj figure{margin:0;aspect-ratio:4/5;overflow:hidden;background:var(--rule);max-width:100%}
 .proj img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
-.proj:hover img{transform:scale(1.03)}
+.proj-link:hover img{transform:scale(1.03)}
 /* Postcards cover: same treatment as the picturepostcardsfromla.com splash */
 .proj figure.sunwash{position:relative}
 .proj figure.sunwash img{filter:brightness(1.08) contrast(.94) saturate(.9)}
 .proj figure.sunwash::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.18) 0%,rgba(255,255,255,.08) 55%,transparent 100%);pointer-events:none}
-.meta{display:flex;align-items:baseline;border-top:1px solid var(--rule);padding-top:10px;min-height:52px}
+.meta{display:flex;align-items:baseline;justify-content:center;text-align:center;border-top:1px solid var(--rule);padding-top:10px;min-height:52px}
 .meta h3{margin:0;min-width:0;line-height:1;color:var(--ink)}
 .meta .code{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
 .proj p{margin:0;color:var(--muted);font-size:14px}
 .go{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--ink)}
-.proj:hover .go{color:var(--mark)}
+.proj-link:hover .go{color:var(--mark)}
 /* gallery sizes for the project type */
 .meta .t-port{font-size:24px}
 .meta .t-tcoa{font-size:22px}
@@ -154,7 +155,7 @@ img{display:block;max-width:100%;height:auto}
 .rs-mark{position:absolute;top:50%;left:50%;width:min(56%,46cqh,260px);height:auto;transform:translate(-50%,-62%);transition:transform .5s ease}
 .proj figure.rs{container-type:size}
 .rs-sun{width:min(64%,200px);aspect-ratio:2/1;border-radius:999px 999px 0 0;background:var(--rs-red)}
-.proj:hover .rs-mark{transform:translate(-50%,-62%) scale(1.03)}
+.proj-link:hover .rs-mark{transform:translate(-50%,-62%) scale(1.03)}
 
 footer{border-top:1px solid var(--rule);padding-block:32px 36px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.04em}
 .social{display:flex;justify-content:center;gap:14px}
@@ -162,6 +163,12 @@ footer{border-top:1px solid var(--rule);padding-block:32px 36px;display:flex;fle
 .social a:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
 .social svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .social .dot{fill:currentColor;stroke:none}
+/* each project's own social links, centred under its title */
+.psocial{list-style:none;margin:0;padding:0;display:flex;justify-content:center;flex-wrap:wrap;gap:8px}
+.psocial a{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;border:1.5px solid var(--rule);color:var(--ink);text-decoration:none;transition:background .2s,color .2s,border-color .2s}
+.psocial a:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.psocial svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.psocial .dot{fill:currentColor;stroke:none}
 .fnav{display:flex;gap:22px;text-transform:uppercase;letter-spacing:.1em}
 .fnav a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
 .fnav a:hover{color:var(--ink);border-bottom-color:var(--mark)}
@@ -201,26 +208,41 @@ footer .addr{user-select:all;color:var(--ink)}
       <h2>Photography <span class="plus">+</span>&nbsp;Art <span class="plus">+</span>&nbsp;Services</h2>
     </section>
     <main class="projects">
-      <a class="proj" href="https://andregraves.com/" target="_blank" rel="noopener">
+      <div class="proj">
+        <a class="proj-link" href="https://andregraves.com/" target="_blank" rel="noopener">
         <figure><img src="img/splash-portfolio.jpg" width="1333" height="2000" alt="A child shading their eyes among jump ropes, in black and white" loading="lazy"></figure>
         <div class="meta"><h3 class="t-port">My Portfolio</h3></div>
       </a>
-      <a class="proj" href="https://thecityofangles.com/" target="_blank" rel="noopener">
+        <ul class="psocial"><li><a href="https://www.instagram.com/andreograves/" target="_blank" rel="noopener" aria-label="Instagram @andreograves" title="Instagram @andreograves"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" class="dot"/></svg></a></li><li><a href="https://www.linkedin.com/in/tcoa/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10.5V17M8 7.3v.1M12 17v-6.5M12 13.3c0-1.7 1-2.8 2.4-2.8s2.1 1 2.1 2.7V17"/></svg></a></li><li><a href="https://www.flickr.com/photos/195629507@N07/" target="_blank" rel="noopener" aria-label="Flickr" title="Flickr"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7.6" cy="12" r="3.6" class="dot"/><circle cx="16.4" cy="12" r="3.6"/></svg></a></li></ul>
+      </div>
+      <div class="proj">
+        <a class="proj-link" href="https://thecityofangles.com/" target="_blank" rel="noopener">
         <figure><img src="img/splash-la.jpg" width="2029" height="1366" style="object-position:40% 50%" alt="The downtown Los Angeles skyline in haze at sunset, above hillside neighborhoods" loading="lazy"></figure>
         <div class="meta"><h3 class="t-tcoa">THE CITY <i>of</i> ANGLEs</h3></div>
       </a>
-      <a class="proj" href="https://dirtyblackblood.com/" target="_blank" rel="noopener">
+        <ul class="psocial"><li><a href="https://instagram.com/the.city.of.angles" target="_blank" rel="noopener" aria-label="Instagram @the.city.of.angles" title="Instagram @the.city.of.angles"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" class="dot"/></svg></a></li><li><a href="https://x.com/_tcoa_" target="_blank" rel="noopener" aria-label="X @_tcoa_" title="X @_tcoa_"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 4h4L19.5 20h-4Z"/><path d="M19 4l-6.1 6.9M11.1 13.1 5 20"/></svg></a></li></ul>
+      </div>
+      <div class="proj">
+        <a class="proj-link" href="https://dirtyblackblood.com/" target="_blank" rel="noopener">
         <figure><img src="img/splash-dbb.jpg" width="1600" height="1067" style="object-position:56% 35%" alt="A child in a cap and white T-shirt crouching to dance in a crowd, in black and white" loading="lazy"></figure>
         <div class="meta"><h3 class="t-dbb">Dirty <b>|</b> Black <b>|</b> Blood</h3></div>
       </a>
-      <a class="proj" href="https://picturepostcardsfromla.com/" target="_blank" rel="noopener">
+        <ul class="psocial"><li><a href="https://www.instagram.com/dirty.black.blood/" target="_blank" rel="noopener" aria-label="Instagram @dirty.black.blood" title="Instagram @dirty.black.blood"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" class="dot"/></svg></a></li></ul>
+      </div>
+      <div class="proj">
+        <a class="proj-link" href="https://picturepostcardsfromla.com/" target="_blank" rel="noopener">
         <figure class="sunwash"><img src="img/splash-ppla.jpg" width="2400" height="1800" style="object-position:60% 40%" alt="A lone palm tree above green hills with the Los Angeles skyline behind it" loading="lazy"></figure>
         <div class="meta"><h3 class="t-ppla" aria-label="Picture Postcards from L.A."><span class="s">Picture Postcards from</span><span class="b">L.A.</span></h3></div>
       </a>
-      <a class="proj" href="https://redsonltd.com/" target="_blank" rel="noopener" aria-label="Red Son Ltd.">
+        <ul class="psocial"><li><a href="https://www.instagram.com/postcards.la/" target="_blank" rel="noopener" aria-label="Instagram @postcards.la" title="Instagram @postcards.la"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" class="dot"/></svg></a></li><li><a href="https://www.facebook.com/postcards.la" target="_blank" rel="noopener" aria-label="Facebook postcards.la" title="Facebook postcards.la"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 21v-8h2.8l.4-3.2H14V7.9c0-.9.3-1.6 1.6-1.6h1.7V3.5c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.2H8V13h2.7v8"/></svg></a></li><li><a href="https://x.com/postcards_la" target="_blank" rel="noopener" aria-label="X @postcards_la" title="X @postcards_la"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 4h4L19.5 20h-4Z"/><path d="M19 4l-6.1 6.9M11.1 13.1 5 20"/></svg></a></li></ul>
+      </div>
+      <div class="proj">
+        <a class="proj-link" href="https://redsonltd.com/" target="_blank" rel="noopener" aria-label="Red Son Ltd.">
         <figure class="rs"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -4 382 330" class="rs-mark" aria-hidden="true"><defs><mask id="rs-mark-card" maskUnits="userSpaceOnUse" x="-4" y="-4" width="382" height="330"><rect x="-4" y="-4" width="382" height="330" fill="#fff"/><rect x="-4" y="65" width="330" height="3" fill="#000"/><rect x="-4" y="73" width="330" height="4" fill="#000"/><rect x="-4" y="83" width="330" height="5" fill="#000"/><rect x="-4" y="175" width="330" height="3" fill="#000"/><rect x="-4" y="183" width="330" height="4" fill="#000"/><rect x="-4" y="193" width="330" height="5" fill="#000"/><rect x="-4" y="285" width="330" height="3" fill="#000"/><rect x="-4" y="293" width="330" height="4" fill="#000"/><rect x="-4" y="303" width="330" height="5" fill="#000"/></mask></defs><g mask="url(#rs-mark-card)"><g fill="none" stroke="currentColor" stroke-width="26"><path d="M13 100V13H75A12 12 0 0 1 87 25V46A12 12 0 0 1 75 58H13 M210 13H135A12 12 0 0 0 123 25V75A12 12 0 0 0 135 87H210M123 50H198 M233 100V13H295A12 12 0 0 1 307 25V75A12 12 0 0 1 295 87H220"/><path transform="translate(0 220)" d="M13 0V75A12 12 0 0 0 25 87H100 M110 13H210M160 26V100 M233 100V13H295A12 12 0 0 1 307 25V75A12 12 0 0 1 295 87H220"/></g><g fill="currentColor"><path d="M48 58H78L100 96V100H70Z"/></g><g transform="translate(0 110)"><path fill="none" stroke="var(--rs-red)" stroke-width="26" d="M100 13H25A12 12 0 0 0 13 25V38A12 12 0 0 0 25 50H75A12 12 0 0 1 87 62V75A12 12 0 0 1 75 87H0 M135 13H185A12 12 0 0 1 197 25V75A12 12 0 0 1 185 87H135A12 12 0 0 1 123 75V25A12 12 0 0 1 135 13Z"/><g fill="var(--rs-red)"><path d="M220 0H250L294 61V0H320V100H290L246 39V100H220Z"/></g></g></g><circle cx="343" cy="306" r="16" fill="currentColor"/><circle cx="354" cy="295" r="16" fill="var(--rs-red)"/></svg><div class="rs-sun"></div></figure>
         <div class="meta"><h3 class="t-rs" aria-label="Red Son Ltd."><svg class="rs-word" viewBox="-4 -4 1158 110" aria-hidden="true"><defs><mask id="rs-word-card" maskUnits="userSpaceOnUse" x="-4" y="-4" width="1158" height="110"><rect x="-4" y="-4" width="1158" height="110" fill="#fff"/><rect x="-4" y="65" width="1108" height="3" fill="#000"/><rect x="-4" y="73" width="1108" height="4" fill="#000"/><rect x="-4" y="83" width="1108" height="5" fill="#000"/></mask></defs><g mask="url(#rs-word-card)"><path fill="none" stroke="currentColor" stroke-width="26" d="M13 100V13H75A12 12 0 0 1 87 25V46A12 12 0 0 1 75 58H13 M210 13H135A12 12 0 0 0 123 25V75A12 12 0 0 0 135 87H210M123 50H198 M233 100V13H295A12 12 0 0 1 307 25V75A12 12 0 0 1 295 87H220 M793 0V75A12 12 0 0 0 805 87H880 M890 13H990M940 26V100 M1013 100V13H1075A12 12 0 0 1 1087 25V75A12 12 0 0 1 1075 87H1000"/><g fill="currentColor"><path d="M48 58H78L100 96V100H70Z"/></g><g class="son"><path fill="none" stroke-width="26" d="M490 13H415A12 12 0 0 0 403 25V38A12 12 0 0 0 415 50H465A12 12 0 0 1 477 62V75A12 12 0 0 1 465 87H390 M525 13H575A12 12 0 0 1 587 25V75A12 12 0 0 1 575 87H525A12 12 0 0 1 513 75V25A12 12 0 0 1 525 13Z"/><path d="M610 0H640L684 61V0H710V100H680L636 39V100H610Z"/></g></g><circle cx="1123" cy="86" r="16" fill="currentColor"/><circle class="son" cx="1134" cy="75" r="16"/></svg></h3></div>
       </a>
+        <ul class="psocial"><li><a href="https://www.istockphoto.com/portfolio/TheCityofAngles?mediatype=photography" target="_blank" rel="noopener" aria-label="License images on iStock" title="License images on iStock"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.6 17.4 5.2-5.2 4 4 2.6-2.6 5 5"/><circle cx="16" cy="9.5" r="1.4"/></svg></a></li></ul>
+      </div>
     </main>
     <footer>
       <nav class="social" aria-label="Social">
