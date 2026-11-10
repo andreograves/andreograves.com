@@ -61,7 +61,13 @@ img{display:block;max-width:100%;height:auto}
 #splash>img{object-position:58% 50%}
 /* splash title card: a poster credit set in the open gold sky above the clouds, the Needle left alone below */
 #splash{place-items:start center;text-align:center;padding-block:clamp(48px,10vh,104px) 64px}
-#splash>img{object-position:58% 30%}
+#splash{--pos:58% 30%;--amp:34px}
+#splash>img{object-position:var(--pos)}
+/* moving clouds: a second copy of the photo drifts slowly, masked so the Needle, the tree and the ridge stay still */
+#splash>.drift{position:absolute!important;inset:0;z-index:0!important;overflow:hidden;pointer-events:none;-webkit-mask:url(img/splash-cloud-mask.png) var(--pos)/cover no-repeat;mask:url(img/splash-cloud-mask.png) var(--pos)/cover no-repeat}
+#splash>.drift img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--pos);transform-origin:56% 45%;animation:drift 44s ease-in-out infinite alternate;will-change:transform}
+@keyframes drift{from{transform:translate3d(calc(var(--amp)*-1),0,0) scale(1.04)}to{transform:translate3d(var(--amp),-6px,0) scale(1.055)}}
+@media (prefers-reduced-motion:reduce){#splash>.drift{display:none}}
 #splash::after{background:linear-gradient(180deg,rgba(255,236,190,.16) 0%,rgba(255,236,190,0) 38%),linear-gradient(0deg,rgba(10,8,14,.35) 0%,rgba(10,8,14,0) 40%)}
 .titlecard{display:flex;flex-direction:column;align-items:center;gap:clamp(22px,3.4vh,36px);max-width:100%}
 .titlecard h1{margin:0;display:flex;flex-direction:column;align-items:center;gap:clamp(8px,1.4vh,16px);font-weight:400;color:var(--night)}
@@ -72,7 +78,7 @@ img{display:block;max-width:100%;height:auto}
 .enter span{letter-spacing:0;font-size:14px;transition:transform .25s}
 .enter:hover{background:var(--night);border-color:var(--night);color:var(--sunset)}
 .enter:hover span{transform:translateX(4px)}
-@media (max-width:560px){#splash{padding-block:72px 48px}#splash>img{object-position:58% 70%}.titlecard .who{font-size:clamp(30px,10vw,44px);letter-spacing:.12em;margin-right:-.12em}}
+@media (max-width:560px){#splash{padding-block:72px 48px}#splash{--pos:58% 70%;--amp:20px}.titlecard .who{font-size:clamp(30px,10vw,44px);letter-spacing:.12em;margin-right:-.12em}}
 
 /* collection screen */
 #coll-hero>img{filter:grayscale(1);object-position:50% 40%}
@@ -180,6 +186,7 @@ footer .addr{user-select:all;color:var(--ink)}
 
 <section class="screen" id="splash" aria-label="Welcome">
   <img src="img/splash-needle.jpg" width="2047" height="1365" alt="The Space Needle against a gold sunset sky and dark clouds" fetchpriority="high">
+  <div class="drift" aria-hidden="true"><img src="img/splash-needle.jpg" width="2047" height="1365" alt=""></div>
   <div class="titlecard">
     <h1><span class="who">André O. Graves</span><span class="what">presents</span></h1>
     <a class="enter" href="#the-collection">Enter <span aria-hidden="true">→</span></a>
